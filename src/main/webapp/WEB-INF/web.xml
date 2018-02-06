@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <context-param>
+    <param-name>adminEmail</param-name>
+    <param-value>contextadmin@qq.com</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>breed</param-name>
+    <param-value>Great Dane</param-value>
+  </context-param>
+
+  <servlet>
+    <!--部署人员知道的内部名字-->
+    <servlet-name>Internal Name 1</servlet-name>
+    <!--实际的文件名字-->
+    <servlet-class>com.makenv.controller.BeerSelect1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <!--部署人员知道的内部名字-->
+    <servlet-name>Internal Name 1</servlet-name>
+    <!--用户知道的URL名字,注意这里有/-->
+    <url-pattern>/SelectBeer1.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Internal Name 2</servlet-name>
+    <servlet-class>com.makenv.controller.BeerSelect2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Internal Name 2</servlet-name>
+    <url-pattern>/SelectBeer2.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BeerParamTests</servlet-name>
+    <servlet-class>com.makenv.controller.TestInitParams</servlet-class>
+    <init-param>
+      <param-name>adminEmail</param-name>
+      <param-value>servletadmin@qq.com</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mainEmail</param-name>
+      <param-value>servletmain@qq.com</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>BeerParamTests</servlet-name>
+    <url-pattern>/Tester.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ListenerTester</servlet-name>
+    <servlet-class>com.makenv.controller.ListenerTester</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ListenerTester</servlet-name>
+    <url-pattern>/ListenTest.do</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+    <listener-class>com.makenv.listener.MyServletContextListener</listener-class>
+  </listener>
+
+  <!--声明过滤器-->
+  <filter>
+    <filter-name>BeerRequest</filter-name>
+    <filter-class>com.makenv.filter.BeerRequestFilter</filter-class>
+    <!--初始化参数-->
+    <init-param>
+      <param-name>LogFileName</param-name>
+      <param-value>UserLog.txt</param-value>
+    </init-param>
+  </filter>
+
+  <!--对应url模式的过滤器映射-->
+  <filter-mapping>
+    <filter-name>BeerRequest</filter-name>
+    <!--不能写/*.do-->
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <!--对应servlet名的过滤器映射-->
+  <filter-mapping>
+    <filter-name>BeerRequest</filter-name>
+    <!--声明servlet名称，这个servlet已经定义-->
+    <servlet-name>Internal Name 1</servlet-name>
+  </filter-mapping>
+
+  <!--<filter>-->
+    <!--<filter-name>Compression</filter-name>-->
+    <!--<filter-class>com.makenv.filter.CompressionFilter</filter-class>-->
+  <!--</filter>-->
+
+  <!--<filter-mapping>-->
+    <!--<filter-name>Compression</filter-name>-->
+    <!--<url-pattern>*.do</url-pattern>-->
+  <!--</filter-mapping>-->
+
+</web-app>
