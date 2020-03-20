@@ -1,4 +1,4 @@
-package com.makenv.controller;
+package com.javashitang.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

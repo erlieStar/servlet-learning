@@ -1,6 +1,6 @@
-package com.makenv.filter;
+package com.javashitang.filter;
 
-import com.makenv.wrapper.CompressionResponseWrapper;
+import com.javashitang.wrapper.CompressionResponseWrapper;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

@@ -19,7 +19,7 @@
     <!--部署人员知道的内部名字-->
     <servlet-name>Internal Name 1</servlet-name>
     <!--实际的文件名字-->
-    <servlet-class>com.makenv.controller.BeerSelect1</servlet-class>
+    <servlet-class>com.javashitang.controller.BeerSelect1</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -31,7 +31,7 @@
 
   <servlet>
     <servlet-name>Internal Name 2</servlet-name>
-    <servlet-class>com.makenv.controller.BeerSelect2</servlet-class>
+    <servlet-class>com.javashitang.controller.BeerSelect2</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -41,7 +41,7 @@
 
   <servlet>
     <servlet-name>BeerParamTests</servlet-name>
-    <servlet-class>com.makenv.controller.TestInitParams</servlet-class>
+    <servlet-class>com.javashitang.controller.TestInitParams</servlet-class>
     <init-param>
       <param-name>adminEmail</param-name>
       <param-value>servletadmin@qq.com</param-value>
@@ -59,7 +59,7 @@
   
   <servlet>
     <servlet-name>ListenerTester</servlet-name>
-    <servlet-class>com.makenv.controller.ListenerTester</servlet-class>
+    <servlet-class>com.javashitang.controller.ListenerTester</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -68,13 +68,13 @@
   </servlet-mapping>
   
   <listener>
-    <listener-class>com.makenv.listener.MyServletContextListener</listener-class>
+    <listener-class>com.javashitang.listener.MyServletContextListener</listener-class>
   </listener>
 
   <!--声明过滤器-->
   <filter>
     <filter-name>BeerRequest</filter-name>
-    <filter-class>com.makenv.filter.BeerRequestFilter</filter-class>
+    <filter-class>com.javashitang.filter.BeerRequestFilter</filter-class>
     <!--初始化参数-->
     <init-param>
       <param-name>LogFileName</param-name>
@@ -98,7 +98,7 @@
 
   <!--<filter>-->
     <!--<filter-name>Compression</filter-name>-->
-    <!--<filter-class>com.makenv.filter.CompressionFilter</filter-class>-->
+    <!--<filter-class>com.javashitangitang.filter.CompressionFilter</filter-class>-->
   <!--</filter>-->
 
   <!--<filter-mapping>-->

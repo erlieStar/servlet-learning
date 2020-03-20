@@ -1,6 +1,6 @@
-package com.makenv.controller;
+package com.javashitang.controller;
 
-import com.makenv.model.BeerExpert;
+import com.javashitang.model.BeerExpert;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

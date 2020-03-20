@@ -1,4 +1,4 @@
-package com.makenv.model;
+package com.javashitang.model;
 
 import java.util.ArrayList;
 import java.util.List;
