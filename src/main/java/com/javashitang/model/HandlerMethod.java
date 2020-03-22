@@ -2,12 +2,12 @@ package com.javashitang.model;
 
 import java.lang.reflect.Method;
 
-public class InvokeInfo {
+public class HandlerMethod {
 
     private Object bean;
     private Method method;
 
-    public InvokeInfo(Object bean, Method method) {
+    public HandlerMethod(Object bean, Method method) {
         this.bean = bean;
         this.method = method;
     }

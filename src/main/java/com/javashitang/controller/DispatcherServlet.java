@@ -2,7 +2,7 @@ package com.javashitang.controller;
 
 import com.javashitang.annotation.Controller;
 import com.javashitang.annotation.RequestMapping;
-import com.javashitang.model.InvokeInfo;
+import com.javashitang.model.HandlerMethod;
 import com.javashitang.util.ClassUtil;
 
 import javax.servlet.ServletException;
@@ -23,7 +23,7 @@ public class DispatcherServlet extends HttpServlet {
     // 保存所有的handler
     private List<Object> beanList = new ArrayList<>();
     // 保存 uri 和 handler 的映射关系
-    private Map<String, InvokeInfo> uriInvokeInfoMap = new HashMap<>();
+    private Map<String, HandlerMethod> uriHandlerMethodMap = new HashMap<>();
 
     private static final String SLASH = "/";
 
@@ -42,12 +42,12 @@ public class DispatcherServlet extends HttpServlet {
         if (uri == null) {
             return;
         }
-        InvokeInfo invokeInfo = uriInvokeInfoMap.get(uri);
-        if (invokeInfo == null) {
+        HandlerMethod handlerMethod = uriHandlerMethodMap.get(uri);
+        if (handlerMethod == null) {
             resp.getWriter().write("404");
             return;
         }
-        String pageName = (String)methodInvoke(invokeInfo.getBean(), invokeInfo.getMethod());
+        String pageName = (String)methodInvoke(handlerMethod.getBean(), handlerMethod.getMethod());
         viewResolver(pageName, req, resp);
     }
 
@@ -108,8 +108,8 @@ public class DispatcherServlet extends HttpServlet {
                     String requestUrl = SLASH + baseUrl + SLASH + methodRequestMapping.value();
                     // 为了处理@Controller和@RequestMapping value 中加了 / 前缀的情况
                     requestUrl = requestUrl.replaceAll("/+", "/");
-                    InvokeInfo invokeInfo = new InvokeInfo(bean, method);
-                    uriInvokeInfoMap.put(requestUrl, invokeInfo);
+                    HandlerMethod handlerMethod = new HandlerMethod(bean, method);
+                    uriHandlerMethodMap.put(requestUrl, handlerMethod);
                 }
             }
         }
