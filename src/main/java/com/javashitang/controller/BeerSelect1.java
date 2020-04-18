@@ -19,7 +19,7 @@ public class BeerSelect1 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("step into doGet");
         //使用doPost来处理Http请求，因为Html表单指出method = POST
-        resp.setContentType("text/html");
+        resp.setContentType("text/html;charset=utf-8");
         PrintWriter out = resp.getWriter();
         out.println("hello");
     }
