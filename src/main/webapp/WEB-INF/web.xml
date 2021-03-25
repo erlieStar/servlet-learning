@@ -6,104 +6,26 @@
          version="3.1">
 
   <context-param>
-    <param-name>adminEmail</param-name>
-    <param-value>contextadmin@qq.com</param-value>
-  </context-param>
-
-  <context-param>
-    <param-name>breed</param-name>
-    <param-value>Great Dane</param-value>
+    <param-name>configLocation</param-name>
+    <param-value>test</param-value>
   </context-param>
 
   <servlet>
-    <!--部署人员知道的内部名字-->
-    <servlet-name>Internal Name 1</servlet-name>
-    <!--实际的文件名字-->
-    <servlet-class>com.javashitang.controller.BeerSelect1</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <!--部署人员知道的内部名字-->
-    <servlet-name>Internal Name 1</servlet-name>
-    <!--用户知道的URL名字,注意这里有/-->
-    <url-pattern>/SelectBeer1.do</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>Internal Name 2</servlet-name>
-    <servlet-class>com.javashitang.controller.BeerSelect2</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>Internal Name 2</servlet-name>
-    <url-pattern>/SelectBeer2.do</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>BeerParamTests</servlet-name>
-    <servlet-class>com.javashitang.controller.TestInitParams</servlet-class>
+    <servlet-name>userServlet</servlet-name>
+    <servlet-class>com.javashitang.controller.UserServlet</servlet-class>
     <init-param>
-      <param-name>adminEmail</param-name>
-      <param-value>servletadmin@qq.com</param-value>
-    </init-param>
-    <init-param>
-      <param-name>mainEmail</param-name>
-      <param-value>servletmain@qq.com</param-value>
+      <param-name>helloWord</param-name>
+      <param-value>hello sir</param-value>
     </init-param>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>BeerParamTests</servlet-name>
-    <url-pattern>/Tester.do</url-pattern>
+    <servlet-name>userServlet</servlet-name>
+    <url-pattern>/user.do</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>ListenerTester</servlet-name>
-    <servlet-class>com.javashitang.controller.ListenerTester</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>ListenerTester</servlet-name>
-    <url-pattern>/ListenTest.do</url-pattern>
-  </servlet-mapping>
-  
+
   <listener>
     <listener-class>com.javashitang.listener.MyServletContextListener</listener-class>
   </listener>
-
-  <!--声明过滤器-->
-  <filter>
-    <filter-name>BeerRequest</filter-name>
-    <filter-class>com.javashitang.filter.BeerRequestFilter</filter-class>
-    <!--初始化参数-->
-    <init-param>
-      <param-name>LogFileName</param-name>
-      <param-value>UserLog.txt</param-value>
-    </init-param>
-  </filter>
-
-  <!--对应url模式的过滤器映射-->
-  <filter-mapping>
-    <filter-name>BeerRequest</filter-name>
-    <!--不能写/*.do-->
-    <url-pattern>*.do</url-pattern>
-  </filter-mapping>
-
-  <!--对应servlet名的过滤器映射-->
-  <filter-mapping>
-    <filter-name>BeerRequest</filter-name>
-    <!--声明servlet名称，这个servlet已经定义-->
-    <servlet-name>Internal Name 1</servlet-name>
-  </filter-mapping>
-
-  <!--<filter>-->
-    <!--<filter-name>Compression</filter-name>-->
-    <!--<filter-class>com.javashitangitang.filter.CompressionFilter</filter-class>-->
-  <!--</filter>-->
-
-  <!--<filter-mapping>-->
-    <!--<filter-name>Compression</filter-name>-->
-    <!--<url-pattern>*.do</url-pattern>-->
-  <!--</filter-mapping>-->
 
 </web-app>
