@@ -16,6 +16,7 @@ public class UserServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.helloWord = config.getInitParameter("helloWord");
+        System.out.println(helloWord);
     }
 
     @Override
