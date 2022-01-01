@@ -1,13 +1,13 @@
 package com.javashitang;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author lilimin
  * @since 2022-01-01
  */
-@Controller
+@RestController
 public class IndexController {
 
     @RequestMapping("index")
