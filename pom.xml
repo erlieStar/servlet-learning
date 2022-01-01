@@ -7,7 +7,9 @@
   <version>1.0</version>
 
   <properties>
-    <embed.tomcat.version>8.0.28</embed.tomcat.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
   </properties>
 
   <dependencies>
@@ -36,6 +38,11 @@
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-logging-juli</artifactId>
+      <version>8.0.28</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
       <version>8.0.28</version>
     </dependency>
     <!--<scope>provided</scope>-->
