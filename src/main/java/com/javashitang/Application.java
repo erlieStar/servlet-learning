@@ -2,8 +2,6 @@ package com.javashitang;
 
 import lombok.SneakyThrows;
 import org.apache.catalina.startup.Tomcat;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 /**
  * @author lilimin
@@ -13,19 +11,9 @@ public class Application {
 
     private static int port = 8080;
     private static String contextPath = "/";
-    private Class<?> primarySource;
-
-    public Application(Class<?> primarySource) {
-        this.primarySource = primarySource;
-    }
-
-    public static ConfigurableApplicationContext run(Class<?> primarySource) {
-        return new Application(primarySource).run();
-    }
 
     @SneakyThrows
-    private ConfigurableApplicationContext run() {
-
+    public static void run() {
         final Tomcat tomcat = new Tomcat();
         String baseDir = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         tomcat.setBaseDir(baseDir);
@@ -36,8 +24,5 @@ public class Application {
         Thread awaitThread = new Thread(() -> { tomcat.getServer().await(); });
         awaitThread.setDaemon(false);
         awaitThread.start();
-        return null;
     }
-
-
 }
